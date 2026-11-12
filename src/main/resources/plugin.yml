@@ -1,0 +1,6 @@
+name: Satchel
+version: '${version}'
+
+main: dev.tqqn.satchel.Satchel
+api-version: '26.3'
+load: POSTWORLD
