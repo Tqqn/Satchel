@@ -1,6 +1,6 @@
 name: Satchel
-version: '${version}'
-
-main: dev.tqqn.satchel.Satchel
+version: '${project.version}'
+main: dev.tqqn.satchel.SatchelPlugin
 api-version: '26.3'
-load: POSTWORLD
+author: Tqqn
+description: API for chest menus and clickable hotbar items.

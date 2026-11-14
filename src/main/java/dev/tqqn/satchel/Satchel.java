@@ -1,16 +1,28 @@
 package dev.tqqn.satchel;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import dev.tqqn.satchel.listener.MenuListener;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 
-public final class Satchel extends JavaPlugin {
+/**
+ * @author Tqqn (tqqn.dev)
+ * Created on 14/11/2026
+ */
+public final class Satchel {
 
-    @Override
-    public void onEnable() {
-        // Plugin startup logic
+    private static Plugin plugin;
+
+    private Satchel() {}
+
+    static void init(Plugin plugin) {
+        if (Satchel.plugin != null) throw new IllegalStateException("Satchel is already initialised");
+        Satchel.plugin = plugin;
+        Bukkit.getPluginManager().registerEvents(new MenuListener(), plugin);
     }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
+    /** The Satchel plugin itself. */
+    public static Plugin plugin() {
+        if (plugin == null) throw new IllegalStateException("Satchel is not enabled; add depend: [Satchel] to your plugin.yml");
+        return plugin;
     }
 }
